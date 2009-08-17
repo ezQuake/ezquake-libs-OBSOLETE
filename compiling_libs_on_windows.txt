@@ -1,0 +1,56 @@
+windows MSVS .lib compilaton
+
+Important notice!
+=================
+Each .lib must be compiled with Multi-threaded (/MT) switch (project properties - configuration properties - c/c++ - code generation - runtime library)
+
+zlib + libpng
+=============
+1) Extract zlib sources to <somewhere>/zlib/ (*)
+2) Extract libpng sources to <somewhere/libpng/ (*)
+3) Open <somewhere>/libpng/projects/visualc71/libpng.sln in MSVS
+4) Select "LIB release"
+5) Compile zlib and libpng
+
+* these dirs must me in same level
+
+minizip
+=======
+1) Create blank project
+2) Add *.c (except miniunz.c and minizip.c) from <somewhere>/zlib/contrib/minizip/
+3) Specify additional libraries directory as <somewhere>/zlib/
+3) Compile it as static library
+
+ircclient
+=========
+1) Open Visual Studio 2008 Command Prompt
+2) Navigate to libircclient source directory and execute following commands
+	cl /nologo /W3 /GX /O2 /I "../include" /D "NDEBUG" /D "WIN32" /D "_MBCS" /D "_LIB" /D "ENABLE_THREADS" /YX /FD /c libircclient.c
+	link -lib /nologo libircclient.obj
+	
+jpeg (v7)
+=========
+1) Open Visual Studio 2008 Command Prompt
+2) Navigate to libjpeg source directory and execute following commands
+	copy jconfig.vc jconfig.h
+	nmake /f makefile.vc clean libjpeg.lib
+	
+expat
+=====
+1) Open <somewhere>/libexpat/lib/expat_static.sln
+2) Compile it. Pretty simple, huh?
+
+pcre
+====
+1) Extract sources to <somewhere>/libpcre/
+2) Extract pscre-vsbuild directory content (/build) of pcre-vsbuild.zip to <somewhere>/libpcre/
+3) Copy *.h and *.c from <somewhere>/libpcre/build/vc2008/ to <somewhere>/libpcre/
+4) Open pcre.sln and compile "pcreXX" project as static library
+
+tcl
+===
+1) Open Visual Studio 2008 Command Prompt
+2) Navigate to <tcl source directory>/win/ and execute following command *
+	nmake /f makefile.vc core OPTS=static,threads
+
+* To generate smaller .lib comment out lines with "OPTIMIZATIONS  = $(OPTIMIZATIONS) -GL" string
