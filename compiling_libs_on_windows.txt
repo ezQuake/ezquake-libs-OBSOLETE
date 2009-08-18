@@ -26,15 +26,15 @@ ircclient / sourceforge.net/projects/libircclient/
 =========
 1) Open Visual Studio 2008 Command Prompt
 2) Navigate to libircclient source directory and execute following commands:
-	cl /nologo /W3 /GX /O2 /I "../include" /D "NDEBUG" /D "WIN32" /D "_MBCS" /D "_LIB" /D "ENABLE_THREADS" /YX /FD /c libircclient.c
-	link -lib /nologo libircclient.obj
+	cl /nologo /W3 /O2 /I "../include" /D "NDEBUG" /D "WIN32" /D "_MBCS" /D "_LIB" /D "ENABLE_THREADS" /FD /c libircclient.c
+	link /lib /nologo libircclient.obj
 	
 jpeg (v7) / www.ijg.org
 =========
 1) Open Visual Studio 2008 Command Prompt
 2) Navigate to libjpeg source directory and execute following commands:
 	copy jconfig.vc jconfig.h
-	nmake /f makefile.vc clean libjpeg.lib
+	nmake nodebug=1 /f makefile.vc clean libjpeg.lib
 	
 expat / sourceforge.net/projects/expat/
 =====
