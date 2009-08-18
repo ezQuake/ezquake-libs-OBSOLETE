@@ -1,10 +1,11 @@
-windows MSVS .lib compilaton
+Microsoft Visual Studio .lib compilaton
+---------------------------------------
 
-Important notice!
-=================
+Important notice
+================
 Each .lib must be compiled with Multi-threaded (/MT) switch (project properties - configuration properties - c/c++ - code generation - runtime library)
 
-zlib + libpng
+zlib + libpng / www.zlib.net www.libpng.org
 =============
 1) Extract zlib sources to <somewhere>/zlib/ (*)
 2) Extract libpng sources to <somewhere/libpng/ (*)
@@ -12,45 +13,57 @@ zlib + libpng
 4) Select "LIB release"
 5) Compile zlib and libpng
 
-* these dirs must me in same level
+* these dirs must be in same level
 
-minizip
+minizip / www.zlib.net
 =======
 1) Create blank project
 2) Add *.c (except miniunz.c and minizip.c) from <somewhere>/zlib/contrib/minizip/
 3) Specify additional libraries directory as <somewhere>/zlib/
 3) Compile it as static library
 
-ircclient
+ircclient / sourceforge.net/projects/libircclient/
 =========
 1) Open Visual Studio 2008 Command Prompt
-2) Navigate to libircclient source directory and execute following commands
+2) Navigate to libircclient source directory and execute following commands:
 	cl /nologo /W3 /GX /O2 /I "../include" /D "NDEBUG" /D "WIN32" /D "_MBCS" /D "_LIB" /D "ENABLE_THREADS" /YX /FD /c libircclient.c
 	link -lib /nologo libircclient.obj
 	
-jpeg (v7)
+jpeg (v7) / www.ijg.org
 =========
 1) Open Visual Studio 2008 Command Prompt
-2) Navigate to libjpeg source directory and execute following commands
+2) Navigate to libjpeg source directory and execute following commands:
 	copy jconfig.vc jconfig.h
 	nmake /f makefile.vc clean libjpeg.lib
 	
-expat
+expat / sourceforge.net/projects/expat/
 =====
 1) Open <somewhere>/libexpat/lib/expat_static.sln
-2) Compile it. Pretty simple, huh?
+2) Compile it.
 
-pcre
+pcre / www.pcre.org
 ====
 1) Extract sources to <somewhere>/libpcre/
 2) Extract pscre-vsbuild directory content (/build) of pcre-vsbuild.zip to <somewhere>/libpcre/
-3) Copy *.h and *.c from <somewhere>/libpcre/build/vc2008/ to <somewhere>/libpcre/
-4) Open pcre.sln and compile "pcreXX" project as static library
+3) Copy pcre_chartables.c from <somewhere>/libpcre/build/vc2008/ to <somewhere>/libpcre/ **
+4) Copy <somewhere>/libpcre/config.h.generic to <somewhere>/libpcre/config.h
+5) Do same thing with pcre.h.generic
+6) Open pcre.sln and compile "pcreXX" project as static library
 
-tcl
+tcl / www.tcl.tk
 ===
 1) Open Visual Studio 2008 Command Prompt
-2) Navigate to <tcl source directory>/win/ and execute following command *
+2) Navigate to <tcl source directory>/win/ and execute following command: *
 	nmake /f makefile.vc core OPTS=static,threads
 
 * To generate smaller .lib comment out lines with "OPTIMIZATIONS  = $(OPTIMIZATIONS) -GL" string
+
+glew / sourceforge.net/projects/glew/
+====
+1) Open <somewhere>/glew/build/vc6/glew.dsp
+2) Compile it.
+
+Missing info
+============
+asmlib
+mgllt
