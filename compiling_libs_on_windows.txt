@@ -56,7 +56,7 @@ tcl / www.tcl.tk
 2) Navigate to <tcl source directory>/win/ and execute following command: *
 	nmake /f makefile.vc core OPTS=static,threads
 
-* To generate smaller .lib comment out lines with "OPTIMIZATIONS  = $(OPTIMIZATIONS) -GL" string
+* To generate smaller .lib comment out lines with "OPTIMIZATIONS  = $(OPTIMIZATIONS) -GL" string in rules.vc
 
 glew / sourceforge.net/projects/glew/
 ====
