@@ -1,0 +1,115 @@
+Unix style library compilation
+---------------------------------------
+
+zlib / www.zlib.net
+=============
+1) $ wget http://www.zlib.net/zlib-1.2.3.tar.gz
+2) $ tar xfv zlib-1.2.3.tar.gz
+3) $ cd zlib-1.2.3/
+4) $ ./configure
+5) $ make
+6) Output is in ./libz.a
+
+libpng / www.libpng.org
+=============
+1) $ wget http://prdownloads.sourceforge.net/libpng/libpng-1.2.39.tar.gz?download
+2) $ tar xfv libpng-1.2.39.tar.gz
+3) $ libpng-1.2.39/
+4) $ ./configure
+5) $ make
+6) Output is in ./.libs/libpng.a
+
+minizip / www.zlib.net
+=======
+1) $ mkdir minizip
+TODO: Make this a list of files
+2) $ cp zlib-1.2.3/contrib/minizip/{crypt.h,ioapi.c,ioapi.h,mztools.c,mztools.h,unzip.c,unzip.h,zip.c,zip.h} minizip/
+3) $ cd minizip/
+
+--- Makefile.orig       2009-08-24 23:16:12.000000000 +1000
++++ Makefile    2009-08-24 22:52:12.000000000 +1000
+@@ -0,0 +1,19 @@
++.PHONY: all
++all: minizip.a
++
++SRCS = ioapi.c mztools.c unzip.c zip.c
++OBJS = $(SRCS:.c=.o)
++
++CFLAGS = 
++LDFLAGS =
++ARFLAGS = rcs
++
++%.o: %.c
++       $(CC) -c $(CFLAGS) $<
++
++minizip.a: $(OBJS)
++       $(AR) $(ARFLAGS) $(@) $(^)
++
++.PHONY: clean
++clean:
++       rm -f minizip.a $(OBJS)
+
+4) $ patch -p0 < Makefile.patch
+4) $ make
+5) Output is in minizip.a
+
+ircclient / sourceforge.net/projects/libircclient/
+=========
+1) $ wget http://downloads.sourceforge.net/project/libircclient/libircclient/1.3/libircclient-1.3.tar.gz?use_mirror=transact
+2) $ tar xfv libircclient-1.3.tar.g
+3) $ cd libircclient-1.3/
+4) $ ./configure
+5) $ make
+6) Output is in ./src/libircclient.a
+
+jpeg (v7) / www.ijg.org
+=========
+1) $ wget http://www.ijg.org/files/jpegsrc.v7.tar.gz
+2) $ tar xfv jpegsrc.v7.tar.gz
+3) $ cd jpeg-7/
+4) $ ./configure
+5) $ make
+6) Output is in ./.libs/libjpeg.a
+
+expat / sourceforge.net/projects/expat/
+=====
+1) $ wget http://downloads.sourceforge.net/project/expat/expat/2.0.1/expat-2.0.1.tar.gz?use_mirror=transact
+2) $ tar xfv expat-2.0.1.tar.gz
+3) $ cd expat-2.0.1/
+4) $ ./configure
+5) $ make
+6) Output is in ./.libs/libexpat.a
+
+pcre / www.pcre.org
+====
+1) $ wget http://downloads.sourceforge.net/project/pcre/pcre/7.9/pcre-7.9.zip?use_mirror=transact
+2) $ unzip pcre-7.9.zip
+3) $ cd pcre-7.9/
+4) $ ./configure
+5) $ make
+6) Output is in ./.libs/libpcre.a
+
+tcl / www.tcl.tk
+===
+1) $ wget http://prdownloads.sourceforge.net/tcl/tcl8.5.7-src.tar.gz
+2) $ tar xfv tcl8.5.7-src.tar.gz
+3) $ cd tcl8.5.7/unix/
+4) $ ./configure
+5) $ make
+6) Output is in ./libtclstub8.5.a
+
+glew / sourceforge.net/projects/glew/
+====
+1) $ wget http://downloads.sourceforge.net/project/glew/glew/1.5.1/glew-1.5.1-src.tgz?use_mirror=transact
+2) $ tar xfv glew-1.5.1-src.tgz
+3) $ cd glew/
+4) $ dos2unix config/config.guess
+3) $ make lib/libGLEW.a
+4) Output lib/libGLEW.a
+
+Missing info
+============
+asmlib
+mgllt
+
+TODO Make this into an executable bash script
