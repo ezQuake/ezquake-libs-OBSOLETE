@@ -1,5 +1,5 @@
 Unix style library compilation
----------------------------------------
+------------------------------
 
 zlib / www.zlib.net
 =============
@@ -109,7 +109,6 @@ glew / sourceforge.net/projects/glew/
 
 Missing info
 ============
-asmlib
 mgllt
 
 TODO Make this into an executable bash script

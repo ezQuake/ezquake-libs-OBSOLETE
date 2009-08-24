@@ -65,5 +65,4 @@ glew / sourceforge.net/projects/glew/
 
 Missing info
 ============
-asmlib
 mgllt
