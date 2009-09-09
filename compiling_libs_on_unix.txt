@@ -15,9 +15,16 @@ libpng / www.libpng.org
 1) $ wget http://prdownloads.sourceforge.net/libpng/libpng-1.2.39.tar.gz?download
 2) $ tar xfv libpng-1.2.39.tar.gz
 3) $ libpng-1.2.39/
-4) $ ./configure
-5) $ make
+4) $ ./configure --enable-static --disable--shared
+5) $ make check
 6) Output is in ./.libs/libpng.a
+
+To make it compatible with ezQuake under x86_64 linux you should change following lines in pngconf.h after ./configure:
+	typedef unsigned long png_uint_32;
+	typedef long png_int_32;
+to
+	typedef unsigned int png_uint_32;
+	typedef int png_int_32; 
 
 minizip / www.zlib.net
 =======
@@ -107,8 +114,12 @@ glew / sourceforge.net/projects/glew/
 3) $ make lib/libGLEW.a
 4) Output lib/libGLEW.a
 
-Missing info
-============
-mgllt
 
-TODO Make this into an executable bash script
+Stripping
+---------
+strip --strip-unneeded --remove-section=.comment *.a
+
+
+TODO
+----
+Make this into an executable bash script
