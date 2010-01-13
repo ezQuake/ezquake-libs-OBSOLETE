@@ -63,6 +63,11 @@ glew / sourceforge.net/projects/glew/
 1) Open <somewhere>/glew/build/vc6/glew.dsp
 2) Compile it.
 
+
+directx / http://msdn.microsoft.com/en-us/directx/default.aspx
+=======
+1) Get a copy of dinput8.lib, dsound.lib, and dxguid.lib from "C:/Program Files/Microsoft DirectX SDK (Month Year)/Lib/<arch>/ directory.
+
 Missing info
 ============
 mgllt
