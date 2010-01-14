@@ -60,8 +60,8 @@ tcl / www.tcl.tk
 
 glew / sourceforge.net/projects/glew/
 ====
-1) Open <somewhere>/glew/build/vc6/glew.dsp
-2) Compile it.
+1) Open <somewhere>/glew/build/vc6/glew.dsw
+2) Compile glew_static project
 
 
 directx / http://msdn.microsoft.com/en-us/directx/default.aspx
