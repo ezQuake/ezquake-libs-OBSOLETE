@@ -44,11 +44,8 @@ expat / sourceforge.net/projects/expat/
 pcre / www.pcre.org
 ====
 1) Extract sources to <somewhere>/libpcre/
-2) Extract pscre-vsbuild directory content (/build) of pcre-vsbuild.zip to <somewhere>/libpcre/
-3) Copy pcre_chartables.c from <somewhere>/libpcre/build/vc2008/ to <somewhere>/libpcre/ **
-4) Copy <somewhere>/libpcre/config.h.generic to <somewhere>/libpcre/config.h
-5) Do same thing with pcre.h.generic
-6) Open pcre.sln and compile "pcreXX" project as static library
+2) Read "BUILDING PCRE ON WINDOWS WITH CMAKE" chapter of <somewhere>/libpcre/NON-UNIX-USE file
+3) Open generated PCRE.sln and compile "pcre" project
 
 tcl / www.tcl.tk
 ===
@@ -66,7 +63,8 @@ glew / sourceforge.net/projects/glew/
 
 directx / http://msdn.microsoft.com/en-us/directx/default.aspx
 =======
-1) Get a copy of dinput8.lib, dsound.lib, and dxguid.lib from "C:/Program Files/Microsoft DirectX SDK (Month Year)/Lib/<arch>/ directory.
+1) Install DirectX SDK
+2) Get a copy of dinput8.lib, dsound.lib, and dxguid.lib from "C:/Program Files/Microsoft DirectX SDK <Month Year>/Lib/<arch>/ directory.
 
 Missing info
 ============
