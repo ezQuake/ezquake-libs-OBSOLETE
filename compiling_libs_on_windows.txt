@@ -66,7 +66,7 @@ directx / http://msdn.microsoft.com/en-us/directx/default.aspx
 1) Install DirectX SDK
 2) Get a copy of dinput8.lib, dsound.lib, and dxguid.lib from "C:/Program Files/Microsoft DirectX SDK <Month Year>/Lib/<arch>/ directory.
 
-cURL http://curl.haxx.se/
+cURL http://curl.haxx.se/libcurl/
 ====
 0) extract .zip with sources, open vc6curl.dsw with MS VS, confirm project update
 1) Make sure that: CURL_STATICLIB is defined as preprocessor definition,
