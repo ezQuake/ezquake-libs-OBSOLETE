@@ -5,21 +5,30 @@ Important notice
 ================
 Each .lib must be compiled with Multi-threaded (/MT) switch (project properties - configuration properties - c/c++ - code generation - runtime library)
 
+Required software
+=================
+* Visual Studio / www.microsoft.com
+* CMake / www.cmake.org
+
 zlib + libpng / www.zlib.net www.libpng.org
 =============
 1) Extract zlib sources to <somewhere>/zlib/ (*)
 2) Extract libpng sources to <somewhere/libpng/ (*)
 3) Open <somewhere>/libpng/projects/visualc71/libpng.sln in MSVS
 4) Select "LIB release"
-5) Compile zlib and libpng
+5) Add gzlib.c gzclose.c gzread.c gzwrite.c to "zlib" project (**)
+6) Remove gzio.c from "zlib" project (**)
+7) Compile zlib and libpng
 
-* these dirs must be in same level
+*  These dirs must be on same level
+** Required if you use zlib version >= 1.2.4 (hope it will be fixed in next zlib/libpng release)
 
 minizip / www.zlib.net
 =======
-1) Create blank project
+1) Create an empty project
 2) Add *.c (except miniunz.c and minizip.c) from <somewhere>/zlib/contrib/minizip/
 3) Specify additional libraries directory as <somewhere>/zlib/
+4) Same with additional includes directory
 3) Compile it as static library
 
 ircclient / sourceforge.net/projects/libircclient/
@@ -29,7 +38,7 @@ ircclient / sourceforge.net/projects/libircclient/
 	cl /nologo /W3 /O2 /I "../include" /D "NDEBUG" /D "WIN32" /D "_MBCS" /D "_LIB" /D "ENABLE_THREADS" /FD /c libircclient.c
 	link /lib /nologo libircclient.obj
 	
-jpeg (v7) / www.ijg.org
+jpeg (v8) / www.ijg.org
 =========
 1) Open Visual Studio 2008 Command Prompt
 2) Navigate to libjpeg source directory and execute following commands:
@@ -50,7 +59,7 @@ pcre / www.pcre.org
 tcl / www.tcl.tk
 ===
 1) Open Visual Studio 2008 Command Prompt
-2) Navigate to <tcl source directory>/win/ and execute following command: *
+2) Navigate to <tcl source directory>/win/ and execute following command: (*)
 	nmake /f makefile.vc core OPTS=static,threads
 
 * To generate smaller .lib comment out lines with "OPTIMIZATIONS  = $(OPTIMIZATIONS) -GL" string in rules.vc
@@ -61,7 +70,7 @@ glew / sourceforge.net/projects/glew/
 2) Compile glew_static project
 
 
-directx / http://msdn.microsoft.com/en-us/directx/default.aspx
+directx / msdn.microsoft.com/en-us/directx/default.aspx
 =======
 1) Install DirectX SDK
 2) Get a copy of dinput8.lib, dsound.lib, and dxguid.lib from "C:/Program Files/Microsoft DirectX SDK <Month Year>/Lib/<arch>/ directory.
