@@ -115,6 +115,15 @@ glew / sourceforge.net/projects/glew/
 4) Output lib/libGLEW.a
 
 
+curl
+====
+1) $ wget http://curl.haxx.se/download/curl-7.21.2.tar.gz
+2) tar zxfv curl-7.21.2.tar.gz
+3) cd curl-7.21.2
+4) ./configure --disable-dict --disable-ftp --disable-imap --disable-ldap --disable-ldaps --disable-pop3 --disable-proxy --disable-rtsp --disable-shared --disable-smtp --disable-telnet --disable-tftp --disable-zlib --without-ca-bundle --without-gnutls --without-libidn --without-librtmp --without-libssh2 --without-nss --without-ssl --without-zlib
+5) make
+6) Output is in ./lib/.libs/libcurl.a
+
 Stripping
 ---------
 strip --strip-unneeded --remove-section=.comment *.a
