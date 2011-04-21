@@ -22,6 +22,7 @@ zlib + libpng / www.zlib.net www.libpng.org
 
 *  These dirs must be on same level
 ** Required if you use zlib version >= 1.2.4 (hope it will be fixed in next zlib/libpng release)
+*mingw* really rename extracted lib dirs from "zlib.1.2.3" to "zlib"
 
 minizip / www.zlib.net
 =======
@@ -29,7 +30,10 @@ minizip / www.zlib.net
 2) Add *.c (except miniunz.c and minizip.c) from <somewhere>/zlib/contrib/minizip/
 3) Specify additional libraries directory as <somewhere>/zlib/
 4) Same with additional includes directory
-3) Compile it as static library
+5) Compile it as static library
+
+*mingw* minizip: add iowin32.c manually into the Makefile
+*mingw* ar rcs minizip.a ioapi.o iowin32.o unzip.o zip.o
 
 ircclient / sourceforge.net/projects/libircclient/
 =========
@@ -37,6 +41,9 @@ ircclient / sourceforge.net/projects/libircclient/
 2) Navigate to libircclient source directory and execute following commands:
 	cl /nologo /W3 /O2 /I "../include" /D "NDEBUG" /D "WIN32" /D "_MBCS" /D "_LIB" /D "ENABLE_THREADS" /FD /c libircclient.c
 	link /lib /nologo libircclient.obj
+
+*mingw* rename libircclient-static.lib to .a
+*mingw* modify makefile, fix compiler binary name (e.g. from i586-mingw-gcc.exe to mingw-gcc.exe)
 	
 jpeg (v8) / www.ijg.org
 =========
@@ -44,6 +51,8 @@ jpeg (v8) / www.ijg.org
 2) Navigate to libjpeg source directory and execute following commands:
 	copy jconfig.vc jconfig.h
 	nmake nodebug=1 /f makefile.vc clean libjpeg.lib
+
+*mingw* do not download windows package, download unix package instead (yeah)
 	
 expat / sourceforge.net/projects/expat/
 =====
@@ -75,6 +84,8 @@ directx / msdn.microsoft.com/en-us/directx/default.aspx
 1) Install DirectX SDK
 2) Get a copy of dinput8.lib, dsound.lib, and dxguid.lib from "C:/Program Files/Microsoft DirectX SDK <Month Year>/Lib/<arch>/ directory.
 
+*mingw* -ldinput -ldsound -ldxguid
+
 cURL http://curl.haxx.se/libcurl/
 ====
 0) extract .zip with sources, open vc6curl.dsw with MS VS, confirm project update
@@ -85,6 +96,8 @@ cURL http://curl.haxx.se/libcurl/
 5) Librarian -> "Ignore all default libraries" is "Yes",
 6) compile as "using libcurl LIB Release",
 7) your lib is in curl/lib/LIB-Release/libcurl.lib 
+
+*mingw* follow instructions from compiling_libs_on_unix, curl
 
 Missing info
 ============
