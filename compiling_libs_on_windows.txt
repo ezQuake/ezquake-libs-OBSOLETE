@@ -73,6 +73,8 @@ tcl / www.tcl.tk
 
 * To generate smaller .lib comment out lines with "OPTIMIZATIONS  = $(OPTIMIZATIONS) -GL" string in rules.vc
 
+*mingw* ./configure --disable-shared
+
 glew / sourceforge.net/projects/glew/
 ====
 1) Open <somewhere>/glew/build/vc6/glew.dsw
@@ -102,3 +104,6 @@ cURL http://curl.haxx.se/libcurl/
 Missing info
 ============
 mgllt
+
+Size reduction: same as when compiling on unix
+strip --strip-unneeded --remove-section=.comment *.a
